@@ -1,0 +1,104 @@
+; JL322A Configuration Editor; Created on release #WC.16.11.0027
+; Ver #14:67.6f.f8.1d.9b.3f.bf.bb.ef.7c.59.fc.6b.fb.9f.fc.ff.ff.37.ef:44
+
+hostname "Aruba-2930M-48G-PoEP - Baie C"
+module 1 type jl322a
+flexible-module A type JL083A
+timesync ntp
+ntp unicast
+ntp server 10.51.0.55 iburst
+ntp enable
+time daylight-time-rule western-europe
+time timezone 60
+ip default-gateway 10.51.0.1
+snmp-server community "ceweNOC" unrestricted
+snmp-server contact "Johann Villeneuve" location "Baie C"
+oobm
+   no ip address
+   ipv6 enable
+   ipv6 address dhcp full
+   exit
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 2-3,5-44,46-48
+   untagged A2-A4
+   tagged 1,4,45,A1
+   no ip address
+   ipv6 enable
+   ipv6 address dhcp full
+   exit
+vlan 10
+   name "VLAN_ISP_01"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 11
+   name "VLAN_ISP_02"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 100
+   name "VLAN_000-22"
+   untagged 3,6-8,13,24-27,30,33-34,36,39-41,43
+   tagged 1,4,45,A1
+   ip address 10.51.0.41 255.255.252.0
+   exit
+vlan 101
+   name "VLAN_104-22"
+   untagged 5,9-12,14-18,20-23,31-32,35,37-38,44,46-48
+   tagged 1,4,45,A1
+   no ip address
+   ipv6 enable
+   ipv6 address autoconfig
+   exit
+vlan 102
+   name "VLAN_005-24"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 103
+   name "VLAN_050-24"
+   untagged 42
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 104
+   name "VLAN_010-24"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 105
+   name "VLAN_011-24"
+   untagged 2
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 106
+   name "VLAN_020-24"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 107
+   name "VLAN_100-24"
+   untagged 19,28-29
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 108
+   name "VLAN_110-24"
+   tagged 1,4,45,A1
+   no ip address
+   exit
+vlan 109
+   name "VLAN_120-24"
+   no ip address
+   exit
+vlan 1002
+   name "VLAN_FW_MNG"
+   no ip address
+   ipv6 enable
+   ipv6 address autoconfig
+   exit
+spanning-tree
+password manager
+

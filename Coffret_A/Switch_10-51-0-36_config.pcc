@@ -1,0 +1,118 @@
+; JL255A Configuration Editor; Created on release #WC.16.11.0027
+; Ver #14:67.6f.f8.1d.9b.3f.bf.bb.ef.7c.59.fc.6b.fb.9f.fc.ff.ff.37.ef:44
+hostname "CHZ-2930F-24G-01"
+module 1 type jl255a
+trunk 21 trk1 lacp
+trunk 19-20 trk3 lacp
+timesync ntp
+ntp unicast
+ntp server 10.51.0.55 iburst
+ntp enable
+time daylight-time-rule western-europe
+time timezone 60
+ip default-gateway 10.51.0.1
+snmp-server community "public" unrestricted
+snmp-server community "ceweNOC"
+snmp-server location "Baie A"
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-18,22-24,Trk1,Trk3
+   tagged 25-28
+   no ip address
+   ipv6 enable
+   ipv6 address dhcp full
+   exit
+vlan 10
+   name "VLAN_ISP_01"
+   tagged 25-28,Trk1
+   no ip address
+   exit
+vlan 11
+   name "VLAN_ISP_02"
+   tagged 25-28,Trk1
+   no ip address
+   exit
+vlan 13
+   name "VLAN_ISP_03"
+   tagged 25-28,Trk1
+   no ip address
+   exit
+vlan 14
+   name "VLAN_ISP_04"
+   untagged 10
+   tagged 25-28,Trk1
+   no ip address
+   exit
+vlan 100
+   name "VLAN_000-22"
+   untagged 1-6,8-9,11-15,17-18,22
+   tagged 25-28,Trk3
+   ip address 10.51.0.36 255.255.255.0
+   exit
+vlan 101
+   name "VLAN_104-22"
+   untagged 16
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 102
+   name "VLAN_005-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 103
+   name "VLAN_050-24"
+   untagged 7,23
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 104
+   name "VLAN_010-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 105
+   name "VLAN_011-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 106
+   name "VLAN_020-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 107
+   name "VLAN_100-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 108
+   name "VLAN_110-24"
+   tagged 25-28,Trk3
+   no ip address
+   exit
+vlan 109
+   name "VLAN_120-24"
+   no ip address
+   exit
+vlan 1001
+   name "VLAN_MPLS"
+   tagged 25-28
+   no ip address
+   exit
+vlan 1002
+   name "VLAN_FW_MNG"
+   untagged 24
+   tagged 25-28,Trk3
+   no ip address
+   exit
+spanning-tree
+spanning-tree Trk1 priority 4
+spanning-tree Trk3 priority 4
+spanning-tree priority 5
+no tftp server
+no autorun
+no dhcp config-file-update
+no dhcp image-file-update
+password manager
+

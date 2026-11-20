@@ -1,0 +1,81 @@
+; JL255A Configuration Editor; Created on release #WC.16.11.0027
+; Ver #14:67.6f.f8.1d.9b.3f.bf.bb.ef.7c.59.fc.6b.fb.9f.fc.ff.ff.37.ef:44
+hostname "Aruba-2930F-24G-PoEP-4SFPP"
+module 1 type jl255a
+timesync ntp
+ntp unicast
+ntp server 10.51.0.55 iburst
+ntp enable
+time daylight-time-rule western-europe
+time timezone 60
+snmp-server community "ceweNOC" unrestricted
+snmp-server contact "Tarek / Johann" location "Grand Bureau"
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-28
+   no ip address
+   ipv6 enable
+   ipv6 address dhcp full
+   exit
+vlan 10
+   name "VLAN_ISP_01"
+   tagged 1
+   no ip address
+   exit
+vlan 11
+   name "VLAN_ISP_02"
+   tagged 1
+   no ip address
+   exit
+vlan 100
+   name "VLAN_000-22"
+   untagged 3-28
+   tagged 1
+   ip address 10.51.0.42 255.255.252.0
+   exit
+vlan 101
+   name "VLAN_104-22"
+   tagged 1
+   no ip address
+   exit
+vlan 102
+   name "VLAN_005-24"
+   tagged 1
+   no ip address
+   exit
+vlan 103
+   name "VLAN_050-24"
+   tagged 1
+   no ip address
+   exit
+vlan 104
+   name "VLAN_010-24"
+   tagged 1
+   no ip address
+   exit
+vlan 105
+   name "VLAN_011-24"
+   untagged 2
+   tagged 1
+   no ip address
+   exit
+vlan 106
+   name "VLAN_020-24"
+   no ip address
+   exit
+vlan 107
+   name "VLAN_100-24"
+   no ip address
+   exit
+vlan 1001
+   name "VLAN_MPLS"
+   no ip address
+   exit
+spanning-tree
+no tftp client
+no tftp server
+no autorun
+no dhcp config-file-update
+no dhcp image-file-update
+password manager
+

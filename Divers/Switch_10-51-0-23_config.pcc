@@ -1,0 +1,73 @@
+; J9773A Configuration Editor; Created on release #YA.16.11.0027
+; Ver #14:41.44.00.04.19.02.13.98.82.34.61.18.28.f3.84.9c.63.ff.37.27:05
+hostname "HP-2530-24G-PoEP ALRM 23"
+timesync ntp
+ntp unicast
+ntp server 10.51.0.55 iburst
+ntp enable
+time daylight-time-rule western-europe
+time timezone 60
+snmp-server community "ceweNOC" unrestricted
+snmp-server contact "Tarek" location "Baie sous escalier"
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged 1-10,13-18,24
+   untagged 11-12,19-23,25-28
+   no ip address
+   exit
+vlan 10
+   name "VLAN_ISP_01"
+   tagged 1
+   no ip address
+   exit
+vlan 11
+   name "VLAN_ISP_02"
+   tagged 1
+   no ip address
+   exit
+vlan 100
+   name "VLAN_000-22"
+   untagged 24
+   tagged 1
+   ip address 10.51.0.23 255.255.252.0
+   exit
+vlan 101
+   name "VLAN_104-22"
+   tagged 1
+   no ip address
+   exit
+vlan 102
+   name "VLAN_005-24"
+   tagged 1
+   no ip address
+   exit
+vlan 103
+   name "VLAN_050-24"
+   tagged 1
+   no ip address
+   exit
+vlan 104
+   name "VLAN_010-24"
+   untagged 13-18
+   tagged 1
+   no ip address
+   exit
+vlan 105
+   name "VLAN_011-24"
+   untagged 2-10
+   tagged 1
+   no ip address
+   exit
+vlan 106
+   name "VLAN_020-24"
+   tagged 1
+   no ip address
+   exit
+vlan 107
+   name "VLAN_100-24"
+   tagged 1
+   no ip address
+   exit
+spanning-tree
+password manager
+
